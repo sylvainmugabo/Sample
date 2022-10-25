@@ -11,6 +11,7 @@ namespace Sample.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public IActionResult RsvpForm() => View();
 
