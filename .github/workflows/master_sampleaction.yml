@@ -9,7 +9,7 @@ on:
       - master
     pull_request:
       - master
-    
+
   workflow_dispatch:
 
 jobs:
@@ -22,14 +22,14 @@ jobs:
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: "6.0.x"
           include-prerelease: true
-       - name: Install dependencies
-        run: dotnet restore    
+      - name: Install dependencies
+        run: dotnet restore
 
       - name: Build with dotnet
         run: dotnet build --configuration Release --no-restore
-        
+
       - name: Run unit tests
         run: dotnet test --no-restore --verbosity normal
 
@@ -46,7 +46,7 @@ jobs:
     runs-on: windows-latest
     needs: build
     environment:
-      name: 'Production'
+      name: "Production"
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -59,7 +59,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'sampleaction'
-          slot-name: 'Production'
+          app-name: "sampleaction"
+          slot-name: "Production"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0927ED40AF9A4223B70D537999FFAD92 }}
           package: .
