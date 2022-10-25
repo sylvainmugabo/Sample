@@ -1,16 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Sample.Controllers;
 using Sample.Models;
-using System;
 using Xunit;
 
 namespace SampleTests.Controllers
 {
     public class HomeControllerTests
     {
-        
+
         [Fact]
-        public  void Index()
+        public void Index()
         {
             var controller = new HomeController();
 
@@ -48,8 +47,9 @@ namespace SampleTests.Controllers
                 Phone = "2401111111",
                 WillAttend = true
             };
-            
-            if (isInvalidState) {
+
+            if (isInvalidState)
+            {
                 controller.ModelState.AddModelError("Invalid", "Required");
             };
 
