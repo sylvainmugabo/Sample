@@ -2,7 +2,7 @@
 
 namespace Sample.Models
 {
-
+    // Guest response modele
     public class GuestResponse
     {
         [Required(ErrorMessage = "Please enter your name")]
