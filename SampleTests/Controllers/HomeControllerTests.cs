@@ -12,7 +12,6 @@ namespace SampleTests.Controllers
         public void Index()
         {
             var controller = new HomeController();
-            throw new System.Exception("Exception");
             var result = controller.Index();
             Assert.NotNull(result);
             Assert.IsType<ViewResult>(result);
