@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Sample.Controllers;
 using Sample.Models;
+using System;
 using Xunit;
 
 namespace SampleTests.Controllers
@@ -14,6 +15,7 @@ namespace SampleTests.Controllers
             var controller = new HomeController();
 
             var result = controller.Index();
+            throw new Exception("exception");
 
             Assert.NotNull(result);
             Assert.IsType<ViewResult>(result);
